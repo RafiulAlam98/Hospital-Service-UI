@@ -27,6 +27,16 @@ const images = [
         imgPath:
           'https://media.istockphoto.com/photos/empty-luxury-modern-hospital-room-picture-id1298375809?b=1&k=20&m=1298375809&s=170667a&w=0&h=q0Pf0nTHR17Y8BcyS8pzfqWLa_HGwthP9qXvRMjanxg=',
       },
+      {
+        
+        imgPath:
+          'https://media.istockphoto.com/photos/modern-empty-temporary-intensive-care-emergency-room-is-ready-to-picture-id1295301481?b=1&k=20&m=1295301481&s=170667a&w=0&h=2W-5mbvRju-L4DE-fzGlhHRWhX5fS72MjUcVwj0_jvg=',
+      },
+      {
+        
+        imgPath:
+          'https://media.istockphoto.com/photos/photo-of-newborn-baby-feet-picture-id1167978175?b=1&k=20&m=1167978175&s=170667a&w=0&h=32QV8HVAxGjgWKQp0s-TElIkoW1WVx7Vo7eR-LfT3U8=',
+      },
     ];
 
 const Slider = () => {
