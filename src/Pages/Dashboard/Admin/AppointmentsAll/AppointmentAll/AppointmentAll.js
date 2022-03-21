@@ -12,7 +12,7 @@ const AppointmentAll = (props) => {
             console.log(_id)
             const proceed = window.confirm('Are You sure to remove this appointment?')
             if(proceed){
-                 fetch(`http://localhost:5000/appointments/${_id}`,{
+                 fetch(`https://enigmatic-mountain-73600.herokuapp.com/appointments/${_id}`,{
                       method:"DELETE"
                  })
                  .then(res => res.json())
@@ -26,7 +26,7 @@ const AppointmentAll = (props) => {
        }
 
       const handleUpdate = id =>{
-            fetch(`http://localhost:5000/appointments/${_id}`,{
+            fetch(`https://enigmatic-mountain-73600.herokuapp.com/appointments/${_id}`,{
                  method:'PUT',
                  headers:{
                       "content-type": "application/json",

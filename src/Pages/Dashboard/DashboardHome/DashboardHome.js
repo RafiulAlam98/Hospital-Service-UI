@@ -1,19 +1,20 @@
 import React from 'react';
 import useAuth from './../../../hooks/useAuth/useAuth';
 import Admin from './../Admin/Admin/Admin';
+import User from './../User/User/User';
 
 const DashboardHome = () => {
       const {admin} = useAuth()
       console.log(admin)
       return (
             <>
-                  <Admin></Admin>
-                  {/* {
+                  {/* <Admin></Admin> */}
+                  {
                         admin?
                         <Admin></Admin>
                   :
                         <User></User>  
-                  }    */}
+                  }   
             </>
       );
 };

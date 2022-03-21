@@ -11,6 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import UserReviews from '../../User/UserReviews/UserReviews/UserReviews';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import Home from './../../../Home/Home/Home/Home';
 import AppointmentsAll from './../AppointmentsAll/AppointmentsAll/AppointmentsAll';
@@ -177,7 +178,7 @@ const Admin = (props) => {
                   <Grid item xs={12} md={12}>
                   <Switch>
                         <Route exact path="/dashboard">
-
+                          <UserReviews></UserReviews>
                         </Route>
                         <Route path={`${path}/appointments`}>
                           <AppointmentsAll></AppointmentsAll>

@@ -8,7 +8,7 @@ const Departments = () => {
       const [loading,setLoading] = useState(false)
       useEffect(()=>{
             setLoading(true)
-            fetch('http://localhost:5000/departments')
+            fetch('https://enigmatic-mountain-73600.herokuapp.com/departments')
             .then(res => res.json())
             .then(data =>{
                   setLoading(true)

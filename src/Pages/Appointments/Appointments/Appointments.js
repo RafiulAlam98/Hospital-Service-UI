@@ -22,7 +22,7 @@ const Appointments = () => {
       
       useEffect(()=>{
             setLoading(true)
-            fetch('http://localhost:5000/departments')
+            fetch('https://enigmatic-mountain-73600.herokuapp.com/departments')
             .then(res => res.json())
             .then(data =>{
                   setLoading(true)
@@ -62,7 +62,7 @@ const Appointments = () => {
                   status:"pending"
             }
             console.log(appointment)
-            fetch(`http://localhost:5000/appointments`, {
+            fetch(`https://enigmatic-mountain-73600.herokuapp.com/appointments`, {
                   method: 'POST',
                   headers: {
                        'content-type': 'application/json',   

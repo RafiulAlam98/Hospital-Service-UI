@@ -108,7 +108,7 @@ const useFirebase = () =>{
 
      // check admin
      useEffect(() => {
-        fetch(`http://localhost:5000/users/admin/${user.email}`)
+        fetch(`https://enigmatic-mountain-73600.herokuapp.com/users/admin/${user.email}`)
         .then(res => res.json())
         .then(data =>{
              console.log(data.admin)
@@ -119,7 +119,7 @@ const useFirebase = () =>{
      // save users to database
      const saveUser = (email,displayName) =>{
           const user = {email, displayName}
-          fetch('http://localhost:5000/signed/users',{
+          fetch('https://enigmatic-mountain-73600.herokuapp.com/signed/users',{
                method:'POST',
                headers:{
                     'content-type': 'application/json'

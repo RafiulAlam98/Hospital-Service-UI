@@ -7,7 +7,7 @@ const Doctors = () => {
       const [loading,setLoading] = useState(false)
       useEffect(()=>{
             setLoading(true)
-            fetch('http://localhost:5000/doctors')
+            fetch('https://enigmatic-mountain-73600.herokuapp.com/doctors')
             .then(res => res.json())
             .then(data =>{
                   console.log(data)

@@ -8,7 +8,7 @@ const AppointmentsAll = () => {
       const [loading,setLoading] = useState(false)
       useEffect(()=>{
             setLoading(true)
-            fetch('http://localhost:5000/appointments')
+            fetch('https://enigmatic-mountain-73600.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data =>{
                   console.log(data)
