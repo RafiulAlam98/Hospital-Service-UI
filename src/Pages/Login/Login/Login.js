@@ -43,7 +43,7 @@ const Login = () => {
           <Container>
                     
                <Grid container spacing={2}>
-                    <Grid item xs={12} md={4}>
+                    <Grid sx={{ width: '100%', mt: 10 }} item xs={12} md={6}>
                          <form onSubmit={handleSubmit}>
                               <Typography
                                    sx={{ textAlign: 'center' }}

@@ -17,7 +17,7 @@ const Department = ({department}) => {
                               gutterBottom
                               component="div"
                         >
-                             Department- {department.name}
+                             Department - {department.name}
                         </Typography>
                         <Typography
                               sx={{  }}
@@ -25,7 +25,7 @@ const Department = ({department}) => {
                               gutterBottom
                               component="div"
                         >
-                             Doctor- {department.doctor}
+                             Doctor - {department.doctor}
                         </Typography>
                         <Typography
                               sx={{  }}
@@ -33,7 +33,7 @@ const Department = ({department}) => {
                               gutterBottom
                               component="div"
                         >
-                             Time- {department.time}
+                             Time - {department.time}
                         </Typography>
                         <Typography
                               sx={{  }}
@@ -41,7 +41,7 @@ const Department = ({department}) => {
                               gutterBottom
                               component="div"
                         >
-                             Available- {department.space}
+                             Available - {department.space}
                         </Typography>
                         <Button
                               sx={{ width: '50%', mt: 1 }}

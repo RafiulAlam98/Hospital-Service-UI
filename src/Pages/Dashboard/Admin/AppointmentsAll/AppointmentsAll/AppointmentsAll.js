@@ -1,38 +1,34 @@
 import { CircularProgress, Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import React, { useEffect, useState } from 'react';
-import Department from '../Department/Department';
+import AppointmentAll from '../AppointmentAll/AppointmentAll';
 
-const Departments = () => {
-      const [departments, setDepartments] = useState([])
+const AppointmentsAll = () => {
+      const [allApps,setAllApps] = useState([])
       const [loading,setLoading] = useState(false)
       useEffect(()=>{
             setLoading(true)
-            fetch('http://localhost:5000/departments')
+            fetch('http://localhost:5000/appointments')
             .then(res => res.json())
             .then(data =>{
-                  setLoading(true)
                   console.log(data)
-                  setDepartments(data)
+                  setAllApps(data)
                   setLoading(false)
             })
       },[])
-
       if(loading){
             return <CircularProgress></CircularProgress>
        }
       return (
             <Container>
-                  
                   <Grid container spacing={2}>
                         {
-                              departments.map(department =><Department department={department} key={department._id}></Department>)  
+                              allApps.map(app =><AppointmentAll app={app}></AppointmentAll>)  
                         }
                        
                   </Grid>
-                  
             </Container>
       );
 };
 
-export default Departments;
+export default AppointmentsAll;

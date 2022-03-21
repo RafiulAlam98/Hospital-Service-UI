@@ -1,9 +1,10 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 
 const Tips = () => {
       return (
             <div>
-                  <h2>Today's Tip from Dr. Siddik Mosharof</h2>
+                  <Typography variant='h6' sx={{m:4}}>Today's Tip from Dr. Siddik Mosharof</Typography>
             </div>
       );
 };

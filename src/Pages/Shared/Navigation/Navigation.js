@@ -32,7 +32,15 @@ const Navigation = () => {
                               </Nav.Link>
 
                               <Nav.Link as={HashLink} className="text-warning fw-bold fs-5" to="/departments">
-                                    Departments
+                                    Appointments
+                              </Nav.Link>
+
+                              <Nav.Link as={HashLink} className="text-warning fw-bold fs-5" to="/dashboard">
+                                    Dashboard
+                              </Nav.Link>
+
+                              <Nav.Link as={HashLink} className="text-warning fw-bold fs-5" to="/test">
+                                    Test
                               </Nav.Link>
                               
                               

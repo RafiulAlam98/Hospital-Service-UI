@@ -1,6 +1,5 @@
 import React from 'react';
 import Queries from '../../Queries/Queries/Queries';
-import Speciality from '../../Speciality/Speciality';
 import Tips from '../../Tips/Tips';
 import Slider from '../Slider/Slider';
 
@@ -8,7 +7,7 @@ const Home = () => {
       return (
             <div>
                   <Slider></Slider>
-                  <Speciality></Speciality>
+                  {/* <Speciality></Speciality> */}
                   <Queries></Queries>
                   <Tips></Tips>
             </div>

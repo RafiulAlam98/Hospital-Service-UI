@@ -15,7 +15,9 @@ const FaqS = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                         >
-                              <Typography>Accordion 1</Typography>
+                              <Typography>
+                                    How to live a healthy lifestyle?
+                              </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                               <Typography>
@@ -30,7 +32,9 @@ const FaqS = () => {
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                         >
-                              <Typography>Accordion 2</Typography>
+                              <Typography>
+                                    How to balanced diet?
+                              </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                               <Typography>
@@ -45,7 +49,9 @@ const FaqS = () => {
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                         >
-                              <Typography>Accordion 2</Typography>
+                              <Typography>
+                                    Why you have to conscious about taking sugar?
+                              </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                               <Typography>
@@ -60,7 +66,9 @@ const FaqS = () => {
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                         >
-                              <Typography>Accordion 2</Typography>
+                              <Typography>
+                                    Which food you have ate during Diabatese?
+                              </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                               <Typography>
@@ -75,7 +83,9 @@ const FaqS = () => {
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                         >
-                              <Typography>Accordion 2</Typography>
+                              <Typography>
+                                    What are the major ways to make your kideny purify?
+                              </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                               <Typography>
