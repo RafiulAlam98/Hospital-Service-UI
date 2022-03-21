@@ -1,10 +1,12 @@
 import { CircularProgress, Typography } from '@mui/material';
+import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useAuth from './../../hooks/useAuth/useAuth';
+import useAuth from './../../../hooks/useAuth/useAuth';
+
 
 
 const Appointments = () => { 
@@ -12,11 +14,11 @@ const Appointments = () => {
       let date = new Date().toLocaleDateString();
       const params = useParams();
       console.log(params.id)
-      
       const [phone,setPhone] = useState('')
       const [patient,setPatient] = useState('')
       const [departments, setDepartments] = useState([])
       const [loading,setLoading] = useState(false)
+      const [acknoledgement, setAcknowledgement] = useState('')
       
       useEffect(()=>{
             setLoading(true)
@@ -46,7 +48,7 @@ const Appointments = () => {
 
       if(loading){
             return <CircularProgress></CircularProgress>
-       }
+      }
 
 
       const handleSubmit = (e) =>{
@@ -56,19 +58,33 @@ const Appointments = () => {
                   email:user?.email,
                   associate:user?.displayName, 
                   phone:phone,
-                  patient:patient
-
-
+                  patient:patient,
+                  status:"pending"
             }
             console.log(appointment)
+            fetch(`http://localhost:5000/appointments`, {
+                  method: 'POST',
+                  headers: {
+                       'content-type': 'application/json',   
+                  },
+                  body: JSON.stringify(appointment),
+                  })
+                  .then(res => res.json())
+                  .then(info => {
+                       console.log(info?.insertedId);
+                       setAcknowledgement(info?.insertedId)
+                  });
+
+            
             e.preventDefault();
       }
-     
+      
+      
       return (
             <>
                <Grid container spacing={2}>
-                    <Grid sx={{ width: '100%', mt: 10 }} item xs={12} md={6}>
-                         <form onSubmit={handleSubmit}>
+                        <Grid sx={{ width: '100%', mt: 10 }} item xs={12} md={6}>
+                              <form onSubmit={handleSubmit}>
                               <Typography
                                    sx={{ textAlign: 'center' }}
                                    color="RGB(155, 35, 53)"
@@ -97,6 +113,17 @@ const Appointments = () => {
                                    sx={{ width: '75%', m: 1 }}
                                    variant="filled"
                               />
+                              <TextField
+                                    disabled
+                                    required
+                                    size="small"
+                                    id="outlined-required"
+                                    label="status"
+                                    name="status"
+                                    defaultValue="pending"
+                                    sx={{ width: '75%', m: 1 }}
+                                    variant="filled"
+                              />
                               
                               <Button
                                    sx={{ width: '25%', m: 5 }}
@@ -107,9 +134,15 @@ const Appointments = () => {
                                    Submit
                               </Button>
                          </form>
+
+                         {
+                              acknoledgement && <Alert severity="success">Appointment Booked Successfully</Alert>
+                         }
                      </Grid>
                  
-                        
+                  {/* <Grid item xs={12} md={6}>
+                        <Calender></Calender>
+                  </Grid>    */}
 
                </Grid>   
             </>

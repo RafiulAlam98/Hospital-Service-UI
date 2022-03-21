@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './context/AuthProvider';
-import Appointments from './Pages/Appointments/Appointments';
+import Appointments from './Pages/Appointments/Appointments/Appointments';
 import Departments from './Pages/Departments/Departments/Departments';
 import Doctors from './Pages/Doctors/Doctors/Doctors';
 import Home from './Pages/Home/Home/Home/Home';
@@ -10,6 +10,7 @@ import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import Navigation from './Pages/Shared/Navigation/Navigation';
+
 
 
 function App() {
