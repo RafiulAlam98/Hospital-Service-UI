@@ -18,9 +18,11 @@ const useFirebase = () =>{
      const auth = getAuth()
 
      // google sign in
-     const googleSignIn = () => {
+     const googleSignIn = (location, history) => {
           setIsLoading(true);
           const googleProvider = new GoogleAuthProvider();
+               const destination = location?.state?.from || '/';
+               history.replace(destination);
           return signInWithPopup(auth, googleProvider)
             .catch(error => {
               const errorMessage = error.message;
@@ -64,6 +66,7 @@ const useFirebase = () =>{
 
      // login the user
      const signInUser = (email, password, location, history) =>{
+          setIsLoading(true)
           signInWithEmailAndPassword(auth, email, password)
           .then((result) => {
                const destination = location?.state?.from || '/';
@@ -76,7 +79,8 @@ const useFirebase = () =>{
           .catch((error) => {
                console.log(error)
                setAuthError(error)
-          });
+          })
+          .finally(()=>setIsLoading(false));
      }
 
      // currently signed in user

@@ -1,6 +1,7 @@
 import React from 'react';
 import Queries from '../../Queries/Queries/Queries';
 import Speciality from '../../Speciality/Speciality';
+import Tips from '../../Tips/Tips';
 import Slider from '../Slider/Slider';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
                   <Slider></Slider>
                   <Speciality></Speciality>
                   <Queries></Queries>
+                  <Tips></Tips>
             </div>
       );
 };
