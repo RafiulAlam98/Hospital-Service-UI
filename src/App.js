@@ -12,8 +12,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer/Footer';
-import Navigation from './Pages/Shared/Navigation/Navigation';
-import Tests from './Pages/Tests/Tests/Tests';
+import Navigation from "./Pages/Shared/Navigation/Navigation";
 
 
 
@@ -22,59 +21,45 @@ function App() {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-        <Switch>
+          <Switch>
+            <Route exact path="/">
+              <Navigation></Navigation>
+              <Home></Home>
+              <Footer></Footer>
+            </Route>
+            <Route exact path="/login">
+              <Login></Login>
+            </Route>
+            <Route exact path="/register">
+              <Register></Register>
+            </Route>
+            <Route path="/home">
+              <Navigation></Navigation>
+              <Home></Home>
+              <Footer></Footer>
+            </Route>
+            <Route path="/doctors">
+              <Navigation></Navigation>
+              <Doctors></Doctors>
+            </Route>
+            <Route path="/departments">
+              <Navigation></Navigation>
+              <Departments></Departments>
+              <Footer></Footer>
+            </Route>
 
-          <Route exact path='/'>
-            <Navigation></Navigation>
-            <Home></Home>
-            <Footer></Footer>
-          </Route>
-
-          <Route exact path='/login'>
-            <Login></Login>
-          </Route>
-
-          <Route exact path='/register'>
-            <Register></Register>
-          </Route>
-
-          <Route path='/home'>
-            <Navigation></Navigation>
-            <Home></Home>
-            <Footer></Footer>
-          </Route>
-
-          <Route path='/doctors'>
-            <Navigation></Navigation>
-            <Doctors></Doctors>
-            
-          </Route>
-
-          <Route path='/departments'>
-            <Navigation></Navigation>
-            <Departments></Departments>
-            <Footer></Footer>
-          </Route>
-
-          <Route path='/test'>
-            <Navigation></Navigation>
-            <Tests></Tests>
-            <Footer></Footer>
-          </Route>
-
-          <PrivateRoute path="/appointments/:id">
-            <Navigation></Navigation>
-            <Appointments></Appointments>
-            <Footer></Footer>
-          </PrivateRoute>
-
-          <PrivateRoute path="/dashboard">
-            <DashboardHome></DashboardHome>
-          </PrivateRoute>
-          <Route path='*'>
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
+            <PrivateRoute path="/appointments/:id">
+              <Navigation></Navigation>
+              <Appointments></Appointments>
+              <Footer></Footer>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <DashboardHome></DashboardHome>
+            </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
         </BrowserRouter>
       </AuthProvider>
     </div>
