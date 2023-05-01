@@ -14,23 +14,25 @@ const MakeAdmin = () => {
                   email:email
             }
             console.log(data)
-            fetch(`https://enigmatic-mountain-73600.herokuapp.com/users/admin/${data?.email}`, {
-                  method:'PUT',
-                  headers:{
-                       'content-type': 'application/json'
-                  },
-                  body:JSON.stringify(data)
-             })
-             .then(res=>res.json())
-             .then(data => {
-                   console.log(data)
-                  if(data.modifiedCount === 0){
-                       alert('User Added Role as Admin')
-                  }
-                  else{
-                       alert('Bad Request')
-                  }
-             })
+            fetch(
+              `https://hospital-web-server.vercel.app/users/admin/${data?.email}`,
+              {
+                method: "PUT",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(data),
+              }
+            )
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.modifiedCount === 0) {
+                  alert("User Added Role as Admin");
+                } else {
+                  alert("Bad Request");
+                }
+              });
             e.preventDefault()
       }
       return (

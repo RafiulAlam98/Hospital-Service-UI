@@ -8,40 +8,41 @@ const AppointmentAll = (props) => {
       const {_id,name,doctor,associate,patient,phone,time,status} = props.app
       
       console.log(_id)
-      const handleDelete = () =>{
-            console.log(_id)
-            const proceed = window.confirm('Are You sure to remove this appointment?')
-            if(proceed){
-                 fetch(`https://enigmatic-mountain-73600.herokuapp.com/appointments/${_id}`,{
-                      method:"DELETE"
-                 })
-                 .then(res => res.json())
-                 .then(data => {
-                      console.log(data)
-                      if(data.deletedCount > 0){    
-                           alert('deleted successfully')
-                      }
-                 })
-            }
-       }
+      const handleDelete = () => {
+        console.log(_id);
+        const proceed = window.confirm(
+          "Are You sure to remove this appointment?"
+        );
+        if (proceed) {
+          fetch(`https://hospital-web-server.vercel.app/appointments/${_id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.deletedCount > 0) {
+                alert("deleted successfully");
+              }
+            });
+        }
+      };
 
-      const handleUpdate = id =>{
-            fetch(`https://enigmatic-mountain-73600.herokuapp.com/appointments/${_id}`,{
-                 method:'PUT',
-                 headers:{
-                      "content-type": "application/json",
-                 },
-                 body:JSON.stringify(props)
-  
-            })
-            .then(res => res.json())
-            .then(data =>{
-                 if(data.modifiedCount>0){
-                      alert('User Updated Successfully')
-                 }
-                 console.log(data)
-            })
-       }
+      const handleUpdate = (id) => {
+        fetch(`https://hospital-web-server.vercel.app/appointments/${_id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(props),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              alert("User Updated Successfully");
+            }
+            console.log(data);
+          });
+      };
 
       return (
             <>

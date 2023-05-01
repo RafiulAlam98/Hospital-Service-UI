@@ -7,13 +7,13 @@ const Doctors = () => {
       const [loading,setLoading] = useState(false)
       useEffect(()=>{
             setLoading(true)
-            fetch('https://enigmatic-mountain-73600.herokuapp.com/doctors')
-            .then(res => res.json())
-            .then(data =>{
-                  console.log(data)
-                  setDoctorts(data.reverse())
-                  setLoading(false)
-            })
+            fetch("https://hospital-web-server.vercel.app/doctors")
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                setDoctorts(data.reverse());
+                setLoading(false);
+              });
       },[])
       if(loading){
             return <CircularProgress></CircularProgress>

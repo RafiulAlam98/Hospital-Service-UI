@@ -20,64 +20,61 @@ const Appointments = () => {
       const [loading,setLoading] = useState(false)
       const [acknoledgement, setAcknowledgement] = useState('')
       
-      useEffect(()=>{
-            setLoading(true)
-            fetch('https://enigmatic-mountain-73600.herokuapp.com/departments')
-            .then(res => res.json())
-            .then(data =>{
-                  setLoading(true)
-                  console.log(data)
-                  setDepartments(data)
-                  setLoading(false)
-            })
-      },[])
+      useEffect(() => {
+        setLoading(true);
+        fetch("https://hospital-web-server.vercel.app/departments")
+          .then((res) => res.json())
+          .then((data) => {
+            setLoading(true);
+            console.log(data);
+            setDepartments(data);
+            setLoading(false);
+          });
+      }, []);
 
-      const appointments = departments.filter(department => department?._id === params?.id)
-      const appointmentData = appointments[0]
-      
-      
-      
+      const appointments = departments.filter(
+        (department) => department?._id === params?.id
+      );
+      const appointmentData = appointments[0];
 
-      const handleOnBlurPhone = (e) =>{
-        setPhone(e.target.value)
+      const handleOnBlurPhone = (e) => {
+        setPhone(e.target.value);
+      };
+
+      const handleOnBlurPatient = (e) => {
+        setPatient(e.target.value);
+      };
+
+      if (loading) {
+        return <CircularProgress></CircularProgress>;
       }
-      
-      const handleOnBlurPatient=(e) =>{
-        setPatient(e.target.value)
-      }
 
-      if(loading){
-            return <CircularProgress></CircularProgress>
-      }
+      const handleSubmit = (e) => {
+        const appointment = {
+          ...appointmentData,
+          date: date,
+          email: user?.email,
+          associate: user?.displayName,
+          phone: phone,
+          patient: patient,
+          status: "pending",
+        };
+        console.log(appointment);
+        fetch(`https://hospital-web-server.vercel.app/appointments`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(appointment),
+        })
+          .then((res) => res.json())
+          .then((info) => {
+            console.log(info?.insertedId);
+            setAcknowledgement(info?.insertedId);
+          });
 
-
-      const handleSubmit = (e) =>{
-            const appointment = {
-                  ...appointmentData,
-                  date:date,
-                  email:user?.email,
-                  associate:user?.displayName, 
-                  phone:phone,
-                  patient:patient,
-                  status:"pending"
-            }
-            console.log(appointment)
-            fetch(`https://enigmatic-mountain-73600.herokuapp.com/appointments`, {
-                  method: 'POST',
-                  headers: {
-                       'content-type': 'application/json',   
-                  },
-                  body: JSON.stringify(appointment),
-                  })
-                  .then(res => res.json())
-                  .then(info => {
-                       console.log(info?.insertedId);
-                       setAcknowledgement(info?.insertedId)
-                  });
-
-            
-            e.preventDefault();
-      }
+        e.preventDefault();
+      };
       
       
       return (

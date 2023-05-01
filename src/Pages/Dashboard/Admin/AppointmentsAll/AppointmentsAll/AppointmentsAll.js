@@ -8,13 +8,13 @@ const AppointmentsAll = () => {
       const [loading,setLoading] = useState(false)
       useEffect(()=>{
             setLoading(true)
-            fetch('https://enigmatic-mountain-73600.herokuapp.com/appointments')
-            .then(res => res.json())
-            .then(data =>{
-                  console.log(data)
-                  setAllApps(data)
-                  setLoading(false)
-            })
+            fetch("https://hospital-web-server.vercel.app/appointments")
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                setAllApps(data);
+                setLoading(false);
+              });
       },[])
       if(loading){
             return <CircularProgress></CircularProgress>
